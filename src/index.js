@@ -1,10 +1,11 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import routes from './routes';
+import router from './routes/index.js';
 
 const app = express();
 
-app.use('/messages', routes.messages);
+app.use('/messages', router.messages);
+app.use('/messages_db', router.messages_db);
 
 const port = process.env.PORT || 3000;
 
@@ -14,7 +15,7 @@ app.use(jsonParser);
 // Error handling
 
 app.use((req, res, next) => {
-    const error = new Error(`Endpoint wasn't found`);
+    const error = new Error(`Endpoint wasn't found.`);
     error.status = 404;
     next(error);
 });

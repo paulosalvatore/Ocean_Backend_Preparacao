@@ -1,15 +1,13 @@
-(async () => {
+import mongodb from 'mongodb';
 
-    const MongoClient = require('mongodb').MongoClient;
-
+export default async () => {
     console.info('Connecting to MongoDB database...');
 
-    const client = await MongoClient.connect('mongodb://localhost:27017/',
+    const client = await mongodb.MongoClient.connect('mongodb://localhost:27017/',
         { useUnifiedTopology: true },
     );
 
-    const db = client.db('ocean-preparacao');
+    console.log('MongoDB connected');
 
-    const collection = db.collection('example');
-
-})();
+    return client.db('ocean-preparacao');
+};

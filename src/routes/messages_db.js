@@ -1,13 +1,24 @@
-import { v4 as uuidv4 } from 'uuid';
-
 import express from 'express';
+import connect from '../database/connect.js';
 
 const router = express.Router();
 
-const messages = {};
+(async () => {
+    const db = await connect();
 
+    const messages = await db.collection('messages');
+
+    // READ ALL
+    router.get('/', async (req, res) => {
+        const find = await messages.find({}).toArray();
+
+        res.send(find);
+    });
+})();
+
+/*
 // CREATE
-router.post('/', (req, res) => {
+router.post('/messages', (req, res) => {
     const message = req.body;
     console.log(req.body);
 
@@ -28,12 +39,12 @@ router.post('/', (req, res) => {
 });
 
 // READ ALL
-router.get('/', (req, res) => {
+router.get('/messages', (req, res) => {
     res.send(messages);
 });
 
 // READ BY ID
-router.get('/:id', (req, res) => {
+router.get('/messages/:id', (req, res) => {
     const id = req.params.id;
 
     if (!messages[id]) {
@@ -44,7 +55,7 @@ router.get('/:id', (req, res) => {
 });
 
 // UPDATE
-router.put('/:id', (req, res) => {
+router.put('/messages/:id', (req, res) => {
     const id = req.params.id;
 
     const message = req.body;
@@ -64,7 +75,7 @@ router.put('/:id', (req, res) => {
 });
 
 // DELETE
-router.delete('/:id', (req, res) => {
+router.delete('/messages:id', (req, res) => {
     const id = req.params.id;
 
     if (!messages[id]) {
@@ -75,5 +86,6 @@ router.delete('/:id', (req, res) => {
 
     res.send({ message: `Message with id '${id}' deleted successfully.` });
 });
+*/
 
 export default router;
