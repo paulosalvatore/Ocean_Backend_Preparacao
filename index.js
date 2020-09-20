@@ -3,6 +3,7 @@ const app = express();
 
 (async () => {
 
+    /*
     // Retrieve
     const MongoClient = require('mongodb').MongoClient;
 
@@ -24,6 +25,7 @@ const app = express();
     const result = await collection.countDocuments({});
 
     console.log(result);
+    */
 
     app.get('/', function (req, res) {
         res.send('Hello World');
