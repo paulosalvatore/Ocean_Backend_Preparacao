@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+import { v4 as uuidv4 } from 'uuid';
+
 // (async () => {
 
 /*
@@ -27,8 +29,28 @@ const result = await collection.countDocuments({});
 console.log(result);
 */
 
-app.get('/', function (req, res) {
+const messages = [];
+
+app.get('/', (req, res) => {
     res.send('Hello World');
+});
+
+app.post('/messages', (req, res) => {
+    const message = req.body;
+
+    if (!message.text) {
+        return res.status(400).json({ message: `Message text is empty or wasn't found` });
+    } else if (messages.find(msg => msg.text === message.text)) {
+        return res.status(409).json({ message: `Message is duplicated.` });
+    }
+
+    const id = uuidv4();
+
+    messages[id] = {
+        text: message.text,
+    };
+
+    return res.status(202).json({ message: 'Message added successfully.' });
 });
 
 const port = process.env.PORT || 3000;
