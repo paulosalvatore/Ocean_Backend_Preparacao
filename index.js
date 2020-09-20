@@ -3,33 +3,35 @@ const app = express();
 
 // (async () => {
 
-    /*
-    // Retrieve
-    const MongoClient = require('mongodb').MongoClient;
+/*
+// Retrieve
+const MongoClient = require('mongodb').MongoClient;
 
-    console.info('Connecting to MongoDB database...');
+console.info('Connecting to MongoDB database...');
 
-    // Connect to the db
-    const client = await MongoClient.connect('mongodb://localhost:27017/',
-        { useUnifiedTopology: true },
-    );
+// Connect to the db
+const client = await MongoClient.connect('mongodb://localhost:27017/',
+    { useUnifiedTopology: true },
+);
 
-    const db = client.db('ocean-preparacao');
+const db = client.db('ocean-preparacao');
 
-    const collection = db.collection('example');
+const collection = db.collection('example');
 
-    const { insertedCount } = await collection.insertOne({
-        a: 1
-    });
+const { insertedCount } = await collection.insertOne({
+    a: 1
+});
 
-    const result = await collection.countDocuments({});
+const result = await collection.countDocuments({});
 
-    console.log(result);
-    */
+console.log(result);
+*/
 
-    app.get('/', function (req, res) {
-        res.send('Hello World');
-    });
+app.get('/', function (req, res) {
+    res.send('Hello World');
+});
 
-    app.listen(3000, () => console.log(`Listening on 3000`));
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Listening on ${port}`));
+
 // })();
