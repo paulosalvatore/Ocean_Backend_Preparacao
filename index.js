@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-(async () => {
+// (async () => {
 
     /*
     // Retrieve
@@ -31,7 +31,5 @@ const app = express();
         res.send('Hello World');
     });
 
-    app.listen(3000);
-
-    console.info('API listening on port 3000.');
-})();
+    app.listen(3000, () => console.log(`Listening on 3000`));
+// })();
