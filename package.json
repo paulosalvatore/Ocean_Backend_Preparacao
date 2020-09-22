@@ -1,19 +1,25 @@
 {
-  "name": "ocean_backend_preparacao",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "start": "node --experimental-modules src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "mongodb": "^3.6.2",
-    "uuid": "^8.3.0"
-  }
+    "name": "ocean_backend_preparacao",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node --experimental-modules src/index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "mongodb": "^3.6.2",
+        "uuid": "^8.3.0"
+    },
+    "devDependencies": {
+        "eslint": "^5.16.0",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "prettier": "npm:@btmills/prettier@^2.1.2"
+    }
 }
