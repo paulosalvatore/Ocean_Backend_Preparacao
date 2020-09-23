@@ -4,13 +4,13 @@ import router from './routes/index.js';
 
 const app = express();
 
-app.use('/messages', router.messages);
-app.use('/messages_db', router.messages_db);
-
 const port = process.env.PORT || 3000;
 
 const jsonParser = bodyParser.json();
 app.use(jsonParser);
+
+app.use('/messages', router.messages);
+app.use('/messages_db', router.messages_db);
 
 // Error handling
 
